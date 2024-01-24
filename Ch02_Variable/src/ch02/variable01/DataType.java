@@ -19,7 +19,7 @@ public class DataType {
 		System.out.println(ch);
 		System.out.print("ch+ch = ");
 		System.out.println(ch+ch);
-		
+		System.out.println("char과 문자열 String와 합쳐지면 숫자로 변환하지 않음"+ch+ch); 
 		System.out.println(name);
 		System.out.println(isRun);
 		System.out.println(str);
