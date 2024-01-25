@@ -23,6 +23,12 @@ public class DataType {
 		System.out.println(name);
 		System.out.println(isRun);
 		System.out.println(str);
+		
+		
+		name = "KIM";
+		System.out.println(name);
+		
+		
 	}
 
 }

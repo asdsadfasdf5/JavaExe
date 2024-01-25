@@ -9,5 +9,6 @@ public class ArithOp {
 		System.out.println(num0*num1);
 		System.out.println(num0/num1);
 		System.out.println(num0%num1);
+		
 	}
 }
