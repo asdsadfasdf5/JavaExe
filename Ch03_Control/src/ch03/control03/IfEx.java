@@ -1,4 +1,4 @@
-package ch03.control01;
+package ch03.control03;
 
 import java.util.Scanner;
 
@@ -13,6 +13,14 @@ public class IfEx {
 //		String Text = score >= 90 ? "A" : "B";
 		if(score >= 90) {
 			System.out.println("A");
+		}else if(score >= 80){
+			System.out.println("B");
+		}else if(score >= 70){
+			System.out.println("C");
+		}else if(score >= 60){
+			System.out.println("D");
+		}else{
+			System.out.println("F");
 		}
 		
 		sc.close();

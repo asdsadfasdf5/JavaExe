@@ -17,5 +17,7 @@ public class IfEx {
 			System.out.println("Not A");
 		}
 		
+		
+		sc.close();
 	}
 }
