@@ -1,4 +1,4 @@
-package ch04.control08;
+package ch03.while08;
 
 public class WhileEx {
 
