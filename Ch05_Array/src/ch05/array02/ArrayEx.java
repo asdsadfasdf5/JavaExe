@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class ArrayEx {
 
+
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -25,8 +27,7 @@ public class ArrayEx {
 		// 소수점 2번째자리까지 나타내려면? printf또는 format사용하려면 %.2f
 		System.out.printf("평균 : %.2f ", avg);
 		
-		
-		
+		sc.close();		
 
 		
 		
