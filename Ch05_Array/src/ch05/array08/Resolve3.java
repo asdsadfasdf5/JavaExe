@@ -22,6 +22,7 @@ public class Resolve3 {
 			
 		}
 		
+		
 		//배열 거꾸로 출력
 		System.out.println("배열 거꾸로 출력 : "+Arrays.toString(arrCopy));
 	}
