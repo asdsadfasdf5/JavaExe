@@ -12,6 +12,7 @@ public class Resolve6 {
 		
 		String[] stuName = new String[5];
 		int[] stuScore = new int[5];
+		char chScore;
 		//   0~4 5번    <  1~5 5
 		for(int i=0;i<stuName.length;i++) {
 			System.out.println((i+1)+"번째 학생이름");
@@ -23,24 +24,31 @@ public class Resolve6 {
 			sc.nextLine(); //개행문자(엔터)를 제거하기위해 추가
 		}
 		
+		
+		
 		int i=0;
 		while(true) {
 			
 			if(i == (stuScore.length)) {break;}
 			
 			if(stuScore[i] >= 90) {
-				System.out.println(stuName[i]+"학생, "+"A학점");
+				chScore = 'A';
+				System.out.println(stuName[i]+"학생, "+chScore+"학점");
 			}else if(stuScore[i] >= 80) {
-				System.out.println(stuName[i]+"학생, "+"B학점");
+				chScore = 'B';
+				System.out.println(stuName[i]+"학생, "+chScore+"학점");
 				
 			}else if(stuScore[i] >= 70) {
-				System.out.println(stuName[i]+"학생, "+"C학점");
+				chScore = 'C';
+				System.out.println(stuName[i]+"학생, "+chScore+"학점");
 				
 			}else if(stuScore[i] >= 60) {
-				System.out.println(stuName[i]+"학생, "+"D학점");
+				chScore = 'D';
+				System.out.println(stuName[i]+"학생, "+chScore+"학점");
 				
 			}else if(stuScore[i] < 60) {
-				System.out.println(stuName[i]+"학생, "+"F학점");
+				chScore = 'F';
+				System.out.println(stuName[i]+"학생, "+chScore+"학점");
 				
 			}
 			

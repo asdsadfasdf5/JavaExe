@@ -16,7 +16,8 @@ public class Resolve5 {
 		System.out.println("숫자 10개 값을 입력");
 		for (int i = 0; i < iArr.length; i++) {
 			System.out.println((i+1)+"번째 값을 입력");
-			iArr[i] = sc.nextInt();
+			int num = sc.nextInt();
+			iArr[i] = num;
 			sum += iArr[i];
 		}
 		for (int i = 0; i < iArr.length; i++) {
@@ -24,7 +25,7 @@ public class Resolve5 {
 
 		}
 		System.out.println("합계 : "+sum);
-
+		sc.close();
 	}
 
 }

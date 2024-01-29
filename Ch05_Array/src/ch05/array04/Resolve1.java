@@ -7,10 +7,15 @@ public class Resolve1 {
 		
 		String[] name = {"김","이","박","최","유","백","강","재","현","오"};
 		
-		
+		// 기본적인 for문
 		for(int i=0;i<name.length;i++) {
 			
 			System.out.println((i+1)+". "+name[i]);
+		}
+		
+		// for each문
+		for(String tmp : name) {
+			System.out.print(tmp+", ");
 		}
 	}
 

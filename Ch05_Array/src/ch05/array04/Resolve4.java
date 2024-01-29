@@ -12,11 +12,13 @@ public class Resolve4 {
 		
 		for(int i=0;i<iArr.length;i++) {
 			iArr[i] = (i+1)*3;
-//			System.out.println(iArr[i]);
+			System.out.print(iArr[i]+", ");
 		}
+		System.out.println("\n------------------------------");
+		
 		for(int i=0;i<reArr.length;i++) {
 			reArr[i] = iArr[(iArr.length-1)-i];
-			System.out.println(reArr[i]);
+			System.out.print(reArr[i]+", ");
 			
 		}
 	}

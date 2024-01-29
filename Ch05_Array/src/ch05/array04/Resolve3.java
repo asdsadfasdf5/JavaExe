@@ -12,7 +12,7 @@ public class Resolve3 {
 
 		int[] student = new int[7];
 		int total = 0;
-		double avg = 0;
+		double avg = 0.0;
 
 		for (int i = 0; i < student.length; i++) {
 
