@@ -5,7 +5,7 @@ import java.util.Scanner;
 //	메서드를 만들기 전 코드
 public class MethodEx {
 	// main메서드 내의 계산하는 부분을 옮긴다.
-	public static void calcArith(int num0, int num1,String op) {
+	public static int calcArith(int num0, int num1,String op) {
 		int result = 0;
 		// 계산
 		switch(op) {
@@ -18,8 +18,8 @@ public class MethodEx {
 		}
 		// 결과 출력
 		System.out.println("결과값은 "+ result + "입니다.");
+		return result;
 	}
-	
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
