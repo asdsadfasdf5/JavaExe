@@ -1,6 +1,7 @@
 package ch05.array08;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Resolve4 {
@@ -10,13 +11,48 @@ public class Resolve4 {
 
 		Scanner sc = new Scanner(System.in);
 		int[] arr = new int[5];
+		
+		
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println("정수 5개 입력");
 			arr[i] = sc.nextInt();
 		}
-		Ver_InserSort(arr);
+		
+//---------------------------------------------------- 난수로만든 배열		
+//		int[] newArr = new int[100_000];
+//		// 난수로 0~100,000사이의 임의의 정수를 배열에 저장
+//		for(int i=0;i<newArr.length;i++) {
+//			double dVal = Math.random();
+//			newArr[i] = (int) (dVal*100_000);
+//		}
+//		System.out.println(Arrays.toString(newArr));
+//---------------------------------------------------- 난수로만든 배열		
+		
+//		Ver_InserSort(arr);
+//		ver_choSort(arr);
+//		Ver_Test(arr);
+		Ver_BubleSort(arr);
 	}
-
+	public static void ver_choSort(int[] arr) {
+		//선택정렬
+		//i번째 데이터를 선택
+		//i를 최소값으로 가정
+		for(int i=0; i<arr.length;i++) {
+			int sel = arr[i];
+			int minIdx = i;
+			//i다음부터 마지막까지 반복
+			for(int j=i+1;j<arr.length;j++) {
+				//현재 선택한 데이터보다 작은 값이 나타나면
+				if(sel > arr[j]) {
+					minIdx = j;
+					sel = arr[j];
+				}
+			}
+					
+		}
+		System.out.print(Arrays.toString(arr));
+	}
+	
 	public static void Ver_BubleSort(int[] arr) {
 		// 버블 정렬
 		// 작동 원리 : 배열의 인접한 요소를 반복적으로 교체
@@ -25,22 +61,17 @@ public class Resolve4 {
 		//2. 현재 요소가 다음 요소보다 크면 바꿈
 		//3. 다음요소로 이동 후 반복
 
-		for (int i = 0; i < arr.length - 1; i++) { // i=0. i<arr.length(5)-1. i++
-			for (int j = i + 1; j < arr.length; j++) {// j= i+1. j<arr.length(5). j++
-				if (arr[i] > arr[j]) {	// arr[i] > arr[j]라면 실행. 현재 요소가 다음요소보다 크다면 실행
-
-					int temp = arr[i];
-					arr[i] = arr[j];
-					arr[j] = temp;
+		for (int i = 0; i < arr.length - 1; i++) { 
+			for (int j = 0; j < arr.length-1-i; j++) {
+				if (arr[j] > arr[j+1]) {	
+					int temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
 				}
 			}
 		}
-		for (int tmp : arr) {
-			System.out.print(tmp + ", ");
-
-		}
-		System.out.println("min : "+arr[0]+"  max : "+arr[arr.length-1]);
-
+		
+		System.out.println(Arrays.toString(arr));
 	}
 
 	public static void Ver_InserSort(int[] arr) {
@@ -70,5 +101,13 @@ public class Resolve4 {
 		}
 		System.out.println("배열 오름차순 출력 : "+Arrays.toString(arr));
 	}
-
+	
+	public static void Ver_Test(int[] arr) {
+		
+		Integer[] arr01 = {1,2,3,4,5};
+		Arrays.sort(arr01,Collections.reverseOrder());
+		
+		
+		System.out.println("배열 오름차순 출력 : "+Arrays.toString(arr01));
+	}
 }
