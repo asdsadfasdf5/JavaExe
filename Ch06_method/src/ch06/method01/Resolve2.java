@@ -18,12 +18,12 @@ public class Resolve2 {
 		System.out.println("2번째 정수를 입력하세요");
 		int num1 = sc.nextInt(); // 2번째 정수 입력 num1에 값 저장
 
-		System.out.print(bnum(num0, num1));
+		System.out.print(abs(num0, num1));
 
 		sc.close();
 	}
 	// 삼항연산자를 사용해 작은수가 앞으로가고 큰수는 뒤로가게하여 절댓값을 표시
-	public static int bnum(int a, int b) {
+	public static int abs(int a, int b) {
 		return a < b ? b - a : a - b;
 	}
 }

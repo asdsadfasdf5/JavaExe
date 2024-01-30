@@ -17,13 +17,14 @@ public class Resolve3 {
 
 	}
 	// 메서드에 시작값 종료값 전달 
-	public static int total(int a, int b) {
+	public static int total(int startNum, int endNum) {
 //for문으로 시작값(a)+1를 i에 전달. 반복되는 주기조건 i가 b와 같거나 b가 클때실행 주기마다 i를 +1해준다
-		for (int i = a + 1; i <= b; i++) {
+		int sum = startNum;
+		for (int i = startNum + 1; i <= endNum; i++) {
 			// a에 i값을 누적해서 저장 / a = a+i와 같음
-			a += i;
+			sum += i;
 		}
 		//for문이 종료되어 리턴값으로 누적되었던 a를 전달
-		return a;
+		return sum;
 	}
 }

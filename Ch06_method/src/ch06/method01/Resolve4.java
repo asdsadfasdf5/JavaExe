@@ -20,9 +20,9 @@ public class Resolve4 {
 		sc.close();
 	}
 	
-	public static void gugudan(int a) {
+	public static void gugudan(int dan) {
 		// 입력을 전달받은 a에 1~9까지 곱해서 보여주는 sysout문으로 출력하여 보여준다 값을 저장하진않음.
-		for(int i=1;i<10;i++) System.out.println(a+"*"+i+"= "+a*i );
+		for(int i=1;i<10;i++) System.out.println(dan+"*"+i+"= "+dan*i );
 		
 	
 	}
