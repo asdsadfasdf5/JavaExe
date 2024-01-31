@@ -13,7 +13,7 @@ import java.util.Scanner;
 	[클래스의 대상]
 	큰 개념의 명사(일반적인 클래스)
 	동사들의 집합(Controller, Business Layer)
-	필드들의 집합(Vo, Dao)
+	필드들의 집합(Vo, Dto)
 
  */
 public class Restaurant {

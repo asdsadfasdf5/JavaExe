@@ -25,6 +25,7 @@ public class RestaurantMain {
 		rest2.selectFood();
 		rest2.deliveryFood();
 		
+		sc.close();
 	}
 
 }

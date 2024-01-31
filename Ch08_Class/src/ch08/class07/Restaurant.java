@@ -13,10 +13,11 @@ public class Restaurant {
 	// 생성자 함수(메서드)
 	// 1. 클래스 이름과 동일
 	// 2. return 형이 없다
-	// 3. 객체 새성되면 자동으로 가장 먼저 호출된다.
+	// 3. 객체 생성되면 자동으로 가장 먼저 호출된다.
 	// 4. 객체의 자동 초기화 작업
 	// 5. 필드변수의 초기화 작업
 	public Restaurant(Scanner sc, String name, String[] foods) {
+		//Main.java에서 Restaurant rs = new Restaurant(); 호출이 될 때 가장먼저 실행
 		this.sc = sc;
 		this.name = name;
 		this.foods = foods;
