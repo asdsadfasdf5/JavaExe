@@ -1,16 +1,19 @@
-package ch08.class09;
+package ch08.class09.answer01;
 
-public class FruitBuyer1_2 {
+public class FruitBuyer {
 	private int money;
 	private int numOfApple;
-	
-	public FruitBuyer1_2(int money) {
+	public final int APPLE_PRICE = 1000;
+	public FruitBuyer(int money) {
 		this.money = money;
 		this.numOfApple= 0;
 		
 	}
-	public void buyApple(int money) {
-		
+	public int buyApple(int money) {
+		int num = money/APPLE_PRICE;
+		this.numOfApple += num;
+		this.money -= money;
+		return num;
 	}
 	
 //	public void buyApple(FruitSeller seller, int money) {

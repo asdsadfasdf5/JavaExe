@@ -1,4 +1,4 @@
-package ch08.class09;
+package ch08.class09.answer01;
 
 /*
  * <class와 class간의 상호작용>
@@ -29,10 +29,10 @@ package ch08.class09;
 	아래처럼 seller를 중심으로 수정하세요.
 	seller.saleApple(buyer, 2000);
  */
-public class FruitMain1_1 {
+public class FruitMain {
 	public static void main(String[] args) {
-		FruitSeller1_3 seller = new FruitSeller1_3(20);
-		FruitBuyer1_2 buyer = new FruitBuyer1_2(10000);
+		FruitSeller seller = new FruitSeller(20);
+		FruitBuyer buyer = new FruitBuyer(10000);
 
 		seller.showSaleResult();
 //		buyer.showBuyResult();

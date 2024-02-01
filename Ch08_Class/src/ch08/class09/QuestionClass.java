@@ -2,43 +2,13 @@ package ch08.class09;
 
 import java.util.Scanner;
 
-
-/*
-1.FruitMain클래스에		
-	현재는 buyer.buyApple(seller, 2000); 처럼 프로그래밍되어
-	있습니다.
-	아래처럼 seller를 중심으로 수정하세요.
-	seller.saleApple(buyer, 2000);
-
-2. 중화요리집을 임의대로 클래스로 만드세요
-
-3. 나는 마트에 가서 5000원을 주고 배 가격 2500를 샀다를 
-   클래스로 설계해서 프로그래밍 하세요
-   
-4. 노래를 나타내는 Song이라는 클래스를 설계하세요.
-   <필드>
-    노래제목 title
-    가수    artist
-    앨범제목 album
-    작곡가  composer
-    노래가 발표된 연도 year
-    노래가 속한 앨범에서의 트랙 번호를 나타내는 track
-
-   <메서드>
-    노래의 정보를 저장하는 setSongInfo(...) : 관련된 매개변수를 인자로 넘겨줌
-    노래의 정보를 나타내는 show()
-
-   <main 실행>
-    ABBA의 "Dancing Queen"노래를 Song객체로 생성하고
-    Show()로 출력하세요
-
-5. Rectangle클래스를 작성하세요
-   int타입의 x1, y1, x2, y2 : 사각형을 구성하는 두 점의 좌표
-   void set(int x1, int y1, int x2, int y2) : 좌표 설정
-   int square() : 사각형 넓이 리턴
-   void show() : 좌표와 넓이 등 직사각형 정보의 화면 출력
-   boolean equals(Rectangle r) : 인자로 전달된 객체 r과 현 객체가 동일한 좌표의 직사각형이면 true 리턴
-*/
+import ch08.class09.answer01.FruitBuyer;
+import ch08.class09.answer01.FruitSeller;
+import ch08.class09.answer02.ChineseRestaurant;
+import ch08.class09.answer03.PearBuyer;
+import ch08.class09.answer03.PearSeller;
+import ch08.class09.answer04.Song;
+import ch08.class09.answer05.Rectangle;
 
 public class QuestionClass {
 
@@ -78,8 +48,7 @@ public class QuestionClass {
 			+ "   void set(int x1, int y1, int x2, int y2) : 좌표 설정\r\n"
 			+ "   int square() : 사각형 넓이 리턴\r\n"
 			+ "   void show() : 좌표와 넓이 등 직사각형 정보의 화면 출력\r\n"
-			+ "   boolean equals(Rectangle r) : 인자로 전달된 객체 r과 현 객체가 동일한 좌표의 직사각형이면 true 리턴\r\n"
-			+ "";
+			+ "   boolean equals(Rectangle r) : 인자로 전달된 객체 r과 현 객체가 동일한 좌표의 직사각형이면 true 리턴";
 	
 	System.out.println("\n\n\n------------------------------------");
 	System.out.println(menuStr);
@@ -100,27 +69,86 @@ public static int getSelectMenu(Scanner sc) {
 
 // 1번 문제에 대한 풀이
 public static void answer1(Scanner sc) {
+	FruitSeller seller = new FruitSeller(20);
+	FruitBuyer buyer = new FruitBuyer(10000);
 
+	seller.showSaleResult();
+	buyer.showBuyResult();
+
+//	// 구매를원하는 유저가 판매자에게 구매
+//	buyer.buyApple(seller, 2000);
+	seller.showSaleResult();
+	buyer.showBuyResult();
+
+	// 판매자가 구매를 원하는 유저에게 환불
+	seller.saleApple(buyer, 2000);
+	seller.showSaleResult();
+	buyer.showBuyResult();
+// 다시하기
 }
 
 // 2번 문제에 대한 풀이
 public static void answer2(Scanner sc) {
-
+	ChineseRestaurant rest = new ChineseRestaurant(sc);
+	//아직안함
 }
 
 // 3번 문제에 대한 풀이
 public static void answer3(Scanner sc) {
+	//
+	PearBuyer seller = new PearBuyer(); // 마트
+	PearSeller buyer = new PearSeller(5000); // 구매자 나 5천원 줌
 
+	seller.showSaleResult();
+	buyer.showBuyResult();
+	System.out.println();
+
+	buyer.buyPear(seller, 5000);
+	System.out.println("@@@@@@@@@@@@@@@  배 다 산다   @@@@@@@@@@@@@@@@@@@");
+	seller.showSaleResult();
+	buyer.showBuyResult();
 }
 
 // 4번 문제에 대한 풀이
 public static void answer4(Scanner sc) {
-
+	Song song =  new Song("Dancing Queen","ABBA");
+	
+	song.setSongInfo("dfasdfsf","good",2002,18);
+	song.show();
+	System.out.println();
+	Song song2 = new Song("Dancing","BBBB");
+	
+	song2.setSongInfo("dddd", "bobobo", 1999, 10);
+	song2.show();
 }
 
 // 5번 문제에 대한 풀이
 public static void answer5(Scanner sc) {
+	
+//	System.out.println("x1값 입력");
+//	int X1 = Integer.parseInt(sc.nextLine());
+//	System.out.println("y1값 입력");
+//	int Y1 = Integer.parseInt(sc.nextLine());
+//	System.out.println("x2값 입력");
+//	int X2 = Integer.parseInt(sc.nextLine());
+//	System.out.println("y2값 입력");
+//	int Y2 = Integer.parseInt(sc.nextLine());
+//	Rectangle rc = new Rectangle();
 
+	
+	Rectangle rc = new Rectangle(1,1,2,3);
+	Rectangle rc2 = new Rectangle(1,1,2,3);
+	
+	
+
+	rc.show();
+	
+	if(rc.equals(rc2)) {
+		System.out.println("사각형이 같음");
+	}else {
+		System.out.println("사각형이 X");
+	}
+	// 
 }
 
 // 전체의 시작인 main 메서드
@@ -160,7 +188,9 @@ public static void main(String[] args) {
 		default:
 			System.out.println("번호를 잘 못 입력했습니다.");
 			break;
-		}			
+		}	
+		
+		System.out.println();
 	}
 
 	System.out.println("Program End~");
