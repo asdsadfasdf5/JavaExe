@@ -1,12 +1,13 @@
-package ch09.abstract10;
+package ch09.abstract11;
 
 //임시직(계약직)
 public class TempEmployee extends Employee {
+	
 	protected int yearSalary; // 연봉
 	protected int hireYear; // 계약기간
 
-	public TempEmployee(String empno, String name, int yearSalary, int hireYear) {
-		super(empno, name);
+	public TempEmployee(int FIX_EMP_CODE,String empno, String name, int yearSalary, int hireYear) {
+		super(FIX_EMP_CODE,empno, name);
 		this.yearSalary = yearSalary;
 		this.hireYear = hireYear;
 	}

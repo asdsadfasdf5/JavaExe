@@ -3,40 +3,47 @@ package ch08.class09.answer02;
 import java.util.Scanner;
 
 public class ChineseRestaurant {
-	private int shopNum; // 중국집 선택 번호
-	private int menuNum; // 중국집 메뉴 번호
-	private Scanner sc; // 스캐너
-	private final String[] SHOP = {"","중국집 1","중국집 2","중국집 3","중국집 4"};
-	private final String[] FOODS = {"","메뉴 1","메뉴 2","메뉴 3","메뉴 4"};
+	// 필드
+	private String[] foods;
+	private int selectNum;
+	private Scanner sc;
+	private String name;
 
-	
-	public ChineseRestaurant(Scanner sc) {
+	// 기본 생성자는 자동으로 클래스파일 생성시 생긴다.(*.class)
+
+	// 매개변수 생성자
+	public ChineseRestaurant(Scanner sc, String name, String[] foods) {
+		this.foods = foods;
 		this.sc = sc;
+		this.name = name;
+
+		// 객체가 생성되면 자동으로 처리해야 하는 작업을 코딩해줄수있다.
+		System.out.println(this.name + "식당을 청소한다~");
+		System.out.println(this.name + "재료를 준비한다");
 	}
-	public int shopNum() {
-		int selectShop = Integer.parseInt(sc.nextLine());
-		return selectShop;
+
+	// 메서드
+	// 메뉴 메서드
+	public void viewMenu() {
+		System.out.println("---------[" + this.name + "]----------");
+		for (int i = 0; i < foods.length; i++) {
+			System.out.println(i + "." + foods[i]);
+		}
 	}
-	public int menuNum() {
-		int selectFood = Integer.parseInt(sc.nextLine());
-		return selectFood;
+
+	public void selectFood() {
+		System.out.println("---------[" + this.name + "]----------");
+		System.out.print("어떤 음식을 선택하시겠습니까? >>");
+		selectNum = sc.nextInt();
+
 	}
-	
-	
-	
-	
-	
-	public String selectShop(int shopNum) {
-		return SHOP[shopNum];
+
+	public void deliveryFood() {
+		System.out.println("---------[" + this.name + "]----------");
+		String food = foods[selectNum];
+		System.out.print(food + "이 나왔습니다.");
+		System.out.print("맛있게 드세요 ^^");
+
 	}
-	public String[] getSHOP() {
-		return SHOP;
-	}
-	public String[] getFOODS() {
-		return FOODS;
-	}
-	public String selectFoods(int menuNum) {
-		return FOODS[menuNum];
-	}
-	
+
 }

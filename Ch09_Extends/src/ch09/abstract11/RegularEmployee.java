@@ -1,14 +1,14 @@
-package ch09.abstract10;
+package ch09.abstract11;
 
 //정규직 사원
 public class RegularEmployee extends Employee {
-
+	
 	protected int yearSalary; // 연봉
 	protected int bonus; // 보너스
 
-	public RegularEmployee(String empno, String name,
+	public RegularEmployee(int FIX_EMP_CODE,String empno, String name,
 			int yearSalary, int bonus) {
-		super(empno, name); // Employee(empno,name)호출
+		super(FIX_EMP_CODE,empno, name); // Employee(empno,name)호출
 		this.yearSalary = yearSalary;
 		this.bonus = bonus;
 		

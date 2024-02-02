@@ -1,4 +1,4 @@
-package ch09.abstract10;
+package ch09.abstract11;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -16,7 +16,10 @@ public class EmployeeManager {
 		System.out.println("2. 계약직");
 		System.out.println("3. 일용직");
 		System.out.println("4. 전체정보보기");
-		System.out.println("5. 종료");
+		System.out.println("5. 정규직 보기");
+		System.out.println("6. 계약직 보기");
+		System.out.println("7. 일용직 보기");
+		System.out.println("8. 종료");
 		System.out.println("번호 입력 >>");
 		int sel = Integer.parseInt(sc.nextLine());
 		return sel;
@@ -31,7 +34,7 @@ public class EmployeeManager {
 		int yearSalary = Integer.parseInt(sc.nextLine());
 		System.out.println("보너스 >>");
 		int bonus = Integer.parseInt(sc.nextLine());
-		RegularEmployee emp = new RegularEmployee(
+		RegularEmployee emp = new RegularEmployee(0,
 				empno, name, yearSalary, bonus);
 		return emp;
 
@@ -47,7 +50,7 @@ public class EmployeeManager {
 		int yearSalary = Integer.parseInt(sc.nextLine());
 		System.out.println("게약기간 >>");
 		int hireYear = Integer.parseInt(sc.nextLine());
-		TempEmployee emp = new TempEmployee(
+		TempEmployee emp = new TempEmployee(1,
 				empno, name, yearSalary, hireYear);
 
 		return emp;
@@ -63,7 +66,7 @@ public class EmployeeManager {
 		int dailyPay = Integer.parseInt(sc.nextLine());
 		System.out.println("일수 >>");
 		int workDay = Integer.parseInt(sc.nextLine());
-		PartTimeEmployee emp = new PartTimeEmployee(
+		PartTimeEmployee emp = new PartTimeEmployee(2,
 				empno, name, dailyPay, workDay);
 
 		return emp;
@@ -88,6 +91,32 @@ public class EmployeeManager {
 		}
 
 	}
+	//정규직 사원만 표기
+	private void viewRegEmployeeInfo() {
+		for (int i = 0; i < this.numOfEmp; i++) {
+			if(this.empArr[i].FIX_EMP_CODE == 0)
+			this.empArr[i].showEmployeeInfo();
+		}
+
+	}
+	//계약직 사원만 표기
+	private void viewTempEmployeeInfo() {
+		for (int i = 0; i < this.numOfEmp; i++) {
+			if(this.empArr[i].FIX_EMP_CODE == 1)
+//			if(this.empArr[i] instanceof TempEmployee)
+				// instanceof를 사용해서 현재 들어있는 배열의 객체와 비교하고싶은 객체를 비교할수있다.
+			this.empArr[i].showEmployeeInfo();
+		}
+
+	}
+	//일용직 사원만 표기
+	private void viewPartEmployeeInfo() {
+		for (int i = 0; i < this.numOfEmp; i++) {
+			if(this.empArr[i].FIX_EMP_CODE == 2)
+			this.empArr[i].showEmployeeInfo();
+		}
+
+	}
 
 	public void run() {
 		boolean isRun = true;
@@ -104,6 +133,18 @@ public class EmployeeManager {
 			}
 			case EmpMenu.PART_EMP -> {
 				emp = createpartTimeEmployee();
+			}
+			case EmpMenu.REG_INFO -> {
+				emp = null;
+				viewRegEmployeeInfo();
+			}
+			case EmpMenu.TEMP_INFO -> {
+				emp = null;
+				viewTempEmployeeInfo();
+			}
+			case EmpMenu.PART_INFO -> {
+				emp = null;
+				viewPartEmployeeInfo();
 			}
 			case EmpMenu.ALL_INFO -> {
 				emp = null;

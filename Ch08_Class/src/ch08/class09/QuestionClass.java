@@ -71,26 +71,28 @@ public static int getSelectMenu(Scanner sc) {
 public static void answer1(Scanner sc) {
 	FruitSeller seller = new FruitSeller(20);
 	FruitBuyer buyer = new FruitBuyer(10000);
-
-	seller.showSaleResult();
-	buyer.showBuyResult();
-
-//	// 구매를원하는 유저가 판매자에게 구매
-//	buyer.buyApple(seller, 2000);
+	//현재상태 출력
 	seller.showSaleResult();
 	buyer.showBuyResult();
 
 	// 판매자가 구매를 원하는 유저에게 환불
 	seller.saleApple(buyer, 2000);
+	
+	//현재상태 출력
 	seller.showSaleResult();
 	buyer.showBuyResult();
-// 다시하기
+
 }
 
 // 2번 문제에 대한 풀이
 public static void answer2(Scanner sc) {
-	ChineseRestaurant rest = new ChineseRestaurant(sc);
-	//아직안함
+	ChineseRestaurant rest = new ChineseRestaurant(sc,
+			"천안문",new String[] {"짜장면","짬뽕","탕수육","라조기","유산슬",
+					"해물떡볶이","우동"});
+	rest.viewMenu();
+	rest.selectFood();
+	rest.deliveryFood();
+	
 }
 
 // 3번 문제에 대한 풀이
@@ -124,31 +126,25 @@ public static void answer4(Scanner sc) {
 
 // 5번 문제에 대한 풀이
 public static void answer5(Scanner sc) {
+	Rectangle rc0 = new Rectangle();
+	rc0.set(10, 10, 30, 30);
 	
-//	System.out.println("x1값 입력");
-//	int X1 = Integer.parseInt(sc.nextLine());
-//	System.out.println("y1값 입력");
-//	int Y1 = Integer.parseInt(sc.nextLine());
-//	System.out.println("x2값 입력");
-//	int X2 = Integer.parseInt(sc.nextLine());
-//	System.out.println("y2값 입력");
-//	int Y2 = Integer.parseInt(sc.nextLine());
-//	Rectangle rc = new Rectangle();
+	Rectangle rc1 = new Rectangle();
+	rc1.set(10, 10, 30, 30);
+	
+	Rectangle rc2 = new Rectangle();
+	rc2.set(20, 20, 50, 50);
+	
+	rc0.show();
+	rc1.show();
+	rc2.show();
+	if(rc0.equals(rc1))	System.out.println("rc0과 rc1은 같습니다");
+	else	System.out.println("rc0과 rc1은 다릅니다");
+	
+	if(rc0.equals(rc2))	System.out.println("rc0과 rc2은 같습니다");
+	else	System.out.println("rc0과 rc2은 다릅니다");
 
 	
-	Rectangle rc = new Rectangle(1,1,2,3);
-	Rectangle rc2 = new Rectangle(1,1,2,3);
-	
-	
-
-	rc.show();
-	
-	if(rc.equals(rc2)) {
-		System.out.println("사각형이 같음");
-	}else {
-		System.out.println("사각형이 X");
-	}
-	// 
 }
 
 // 전체의 시작인 main 메서드
@@ -190,7 +186,7 @@ public static void main(String[] args) {
 			break;
 		}	
 		
-		System.out.println();
+		sc.next();
 	}
 
 	System.out.println("Program End~");

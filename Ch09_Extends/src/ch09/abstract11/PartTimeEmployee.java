@@ -1,12 +1,13 @@
-package ch09.abstract10;
+package ch09.abstract11;
 
 //일용직
 public class PartTimeEmployee extends Employee {
+	
 	protected int dailyPay; // 일당
 	protected int workDay; // 일한 일수
 
-	public PartTimeEmployee(String empno, String name, int dailyPay, int workDay) {
-		super(empno, name);
+	public PartTimeEmployee(int FIX_EMP_CODE,String empno, String name, int dailyPay, int workDay) {
+		super(FIX_EMP_CODE,empno, name);
 		this.dailyPay = dailyPay;
 		this.workDay = workDay;
 	}
