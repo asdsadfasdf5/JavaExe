@@ -89,7 +89,7 @@ public class EmployeeManager {
 		
 		return isSave;
 	}
-
+	// 전체 사원 표기
 	private void viewAllEmployeeInfo() {
 		Set<String> keySet = eHashMap.keySet();
 		Iterator<String> keyInterator = keySet.iterator();

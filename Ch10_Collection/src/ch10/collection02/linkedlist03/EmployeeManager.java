@@ -1,18 +1,15 @@
 package ch10.collection02.linkedlist03;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeManager {
-	private final int EMP_NUM = 100;	// 100명 사원이 최대
-	// Employee의 자식객체들을 저장
-//	private Employee[] empArr = new Employee[EMP_NUM];
-	private List<Employee> empLinkArr = new LinkedList<>();
-	
-	private int numOfEmp = 0;	// 저장된 사원객체 수, 다음 사원이 저장될 index
+	private List<Employee> empLinkedList = new LinkedList<>();
 	private Scanner sc = new Scanner(System.in);
-	
+	private String sabun = "";
+
 	private int viewMenu() {
 		System.out.println("[ 사원 선택 ]");
 		System.out.println("1. 정규직");
@@ -30,26 +27,40 @@ public class EmployeeManager {
 		int sel = Integer.parseInt(sc.next());
 		return sel;
 	}
-	
-	private String searchLinedList() {
+
+	private void searchLinkedList() {
 		System.out.println("찾는 사번 검색해주세요");
+		// 사번을 가져오기
 		String sabun = sc.next();
-		
-		return sabun;
+
+		for (int i = 0; i < empLinkedList.size(); i++) {
+			Employee emp = empLinkedList.get(i);
+
+			if (emp.empno.equals(sabun)) {
+				System.out.println("찾으시는 사번 "+"["+sabun+"]");
+				empLinkedList.get(i).showEmployeeInfo();
+			}
+		}
+
 	}
-	private void insertLinedList() {
+
+
+
+	private void deleteLinkedList() {
 		System.out.println("찾는 사번 검색해주세요");
-		String sabun = sc.next();
-		
-		
+		sabun = sc.next();
+		for (int i = 0; i < empLinkedList.size(); i++) {
+			Employee emp = empLinkedList.get(i);
+
+			if (emp.empno.equals(sabun)) {
+				System.out.println("삭제하려는 사번 "+"["+sabun+"]");
+				empLinkedList.remove(i);
+				System.out.println("["+sabun+"] 삭제완료");
+			}
+		}
+		viewAllEmployeeInfo();
 	}
-	private void deleteLinedList() {
-		System.out.println("찾는 사번 검색해주세요");
-		String sabun = sc.next();
-		
-		
-	}
-	
+
 	private RegularEmployee createRegularEmployee() {
 		System.out.print("사번 >> ");
 		String empno = sc.next();
@@ -59,10 +70,10 @@ public class EmployeeManager {
 		int yearSalary = sc.nextInt();
 		System.out.print("보너스 >> ");
 		int bonus = sc.nextInt();
-		RegularEmployee emp = 
-				new RegularEmployee(empno, name, yearSalary, bonus);
+		RegularEmployee emp = new RegularEmployee(empno, name, yearSalary, bonus);
 		return emp;
 	}
+
 	private TempEmployee createTempEmployee() {
 		System.out.print("사번 >> ");
 		String empno = sc.next();
@@ -72,10 +83,10 @@ public class EmployeeManager {
 		int yearSalary = sc.nextInt();
 		System.out.print("계약기간 >> ");
 		int hireYear = sc.nextInt();
-		TempEmployee emp = 
-				new TempEmployee(empno, name, yearSalary, hireYear);
+		TempEmployee emp = new TempEmployee(empno, name, yearSalary, hireYear);
 		return emp;
 	}
+
 	private PartTimeEmployee createPartTimeEmployee() {
 		System.out.print("사번 >> ");
 		String empno = sc.next();
@@ -85,64 +96,70 @@ public class EmployeeManager {
 		int dailyPay = sc.nextInt();
 		System.out.print("일한 일수 >> ");
 		int workDay = sc.nextInt();
-		PartTimeEmployee emp = 
-				new PartTimeEmployee(empno, name, dailyPay, workDay);
+		PartTimeEmployee emp = new PartTimeEmployee(empno, name, dailyPay, workDay);
 		return emp;
 	}
+
 	private boolean saveEmployee(Employee newEmp) {
-		System.out.println("saveEmp_Start");
-		for(int i=0;i<empLinkArr.size();i++) {
-			Employee emp = empLinkArr.get(i);
-			if(emp.empno.equals(newEmp.empno)) {
-				System.out.println("if_saveEmp_Start");
-				System.out.println("같은 사번입니다.");
-			}else {
-				System.out.println("else_saveEmp_Start");
-				empLinkArr.add(emp);
+		boolean isSave = false;
+		for (int i = 0; i < empLinkedList.size(); i++) {
+			Employee emp = empLinkedList.get(i);
+			if (emp.empno.equals(newEmp.empno)) {
+				System.out.println("기존의 사번을 삭제하고 새로운 사번을 등록합니다.");
+				empLinkedList.remove(i);
+				empLinkedList.add(i, newEmp);
+				isSave = true;
+				break;
 			}
 		}
-		System.out.println("saveEmp_End");
-		
-		
-		return true;
+		if (!isSave) {
+			System.out.println("사원을 추가합니다.");
+			isSave = empLinkedList.add(newEmp);
+		}
+		return isSave;
 	}
+
 	private void viewAllEmployeeInfo() {
-//		for(int i=0;i<this.empLinkArr.size();i++) {
-////			this.empArr[i].showEmployeeInfo();
-//			this.empLinkArr.get(i).showEmployeeInfo();
-//		}
-		for(Employee i : empLinkArr) {
+
+		for (Employee i : empLinkedList) {
 			i.showEmployeeInfo();
 		}
 	}
+
 	private void viewRegEmployeeInfo() {
-		for(int i=0;i<this.empLinkArr.size();i++) {
-			Employee emp = this.empLinkArr.get(i);
-			if(emp instanceof RegularEmployee)
-				this.empLinkArr.get(i).showEmployeeInfo();
+		for (int i = 0; i < empLinkedList.size(); i++) {
+			Employee emp = empLinkedList.get(i);
+			if (emp instanceof RegularEmployee) {
+				emp.showEmployeeInfo();
+			}
 		}
 	}
+
 	private void viewTempEmployeeInfo() {
-		for(int i=0;i<this.numOfEmp;i++) {
-			Employee emp = this.empLinkArr.get(i);
-			if(emp instanceof TempEmployee)
-				this.empLinkArr.get(i).showEmployeeInfo();
+		for (int i = 0; i < empLinkedList.size(); i++) {
+			Employee emp = empLinkedList.get(i);
+			if (emp instanceof TempEmployee) {
+				emp.showEmployeeInfo();
+			}
 		}
 	}
+
 	private void viewPartTimeEmployeeInfo() {
-		for(int i=0;i<this.numOfEmp;i++) {
-			Employee emp = this.empLinkArr.get(i);
-			if(emp instanceof PartTimeEmployee)
-				this.empLinkArr.get(i).showEmployeeInfo();
+		for (int i = 0; i < empLinkedList.size(); i++) {
+			Employee emp = empLinkedList.get(i);
+			if (emp instanceof PartTimeEmployee) {
+				emp.showEmployeeInfo();
+			}
 		}
 	}
+
 	public void run() {
 		boolean isRun = true;
-		while(isRun) {
+		while (isRun) {
 			int selNum = viewMenu();
 			Employee emp = null;
-			
-			switch(selNum) {
+
+			switch (selNum) {
 			case EmpMenu.REG_EMP:
 				emp = createRegularEmployee();
 				break;
@@ -166,13 +183,13 @@ public class EmployeeManager {
 				viewPartTimeEmployeeInfo();
 				break;
 			case EmpMenu.SEARCH:
-				searchLinedList();
+				searchLinkedList();
 				break;
 			case EmpMenu.CHANGE:
-				
+//				updateLinkedList();
 				break;
 			case EmpMenu.DELETE:
-				
+				deleteLinkedList();
 				break;
 			case EmpMenu.EXIT:
 				emp = null;
@@ -183,20 +200,14 @@ public class EmployeeManager {
 				System.out.println("해당 항목이 존재하지 않습니다.");
 				break;
 			}
-			
+
 			// emp객체가 존재한다면
-			if(emp != null) {
+			if (emp != null) {
 				boolean isSave = saveEmployee(emp);
-				if(!isSave)
-					System.out.println("더 이상 저장 공간이 없습니다.");
+				if (!isSave)
+					System.out.println("오류 발생");
 			}
 		}
 		System.out.println("Program Exit...");
 	}
 }
-
-
-
-
-
-

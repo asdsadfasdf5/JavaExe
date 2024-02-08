@@ -12,9 +12,9 @@ public class ExceptionHandlingExample2 {
 			//방법1
 			System.out.println(e.getMessage());
 			//방법2
-//			System.out.println(e.toString());
+			System.out.println(e.toString());
 			//방법3
-//			e.printStackTrace();
+			e.printStackTrace();
 			//예외 정보를 얻는 방법은 3가지가 있다.
 			
 		}finally {
