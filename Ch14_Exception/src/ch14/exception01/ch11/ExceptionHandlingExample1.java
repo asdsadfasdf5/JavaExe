@@ -1,4 +1,4 @@
-package ch11.sec02.exam01;
+package ch14.exception01.ch11;
 
 public class ExceptionHandlingExample1 {
 

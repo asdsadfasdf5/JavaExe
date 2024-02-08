@@ -1,4 +1,4 @@
-package ch11.sec06;
+package ch14.exception01.ch11.sec06;
 
 public class Account {
 	private long balance;

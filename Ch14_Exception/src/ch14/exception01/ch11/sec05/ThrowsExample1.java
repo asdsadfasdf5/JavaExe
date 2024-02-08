@@ -1,4 +1,4 @@
-package ch11.sec05;
+package ch14.exception01.ch11.sec05;
 
 public class ThrowsExample1 {
 
