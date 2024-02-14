@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 public class ExecutorServiceExample {
 
 	public static void main(String[] args) {
-		//스레드풀 생성
+		//스레드풀 생성(5개 스레드 생성)
 		ExecutorService executorService = Executors.newFixedThreadPool(5);
 		//작업 생성과 처리 요청
 		//스레드풀 종료
@@ -15,3 +15,4 @@ public class ExecutorServiceExample {
 	}
 
 }
+

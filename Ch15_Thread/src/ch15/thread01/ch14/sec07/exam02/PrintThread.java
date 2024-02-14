@@ -10,7 +10,7 @@ public class PrintThread extends Thread {
 			}
 
 		} catch (InterruptedException e) {
-
+			System.out.println(e);
 		}
 		System.out.println("리소스 정리");
 		System.out.println("실행종료");
